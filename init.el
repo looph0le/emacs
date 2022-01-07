@@ -1,4 +1,4 @@
-
+;;package
 (require 'package)
 (setq package-enable-at-startup nil)
 
@@ -11,6 +11,7 @@
   (package-refresh-contents)
   (package-install 'use-package))
 
+;;themes
 (use-package ewal
   :init (setq ewal-use-built-in-always-p nil
               ewal-use-built-in-on-failure-p t
@@ -26,6 +27,7 @@
   (scroll-bar-mode -1)
   (window-divider-mode 1))
 
+;;evil keybinding
 (use-package evil
 	:ensure t
 	:init
@@ -43,6 +45,7 @@
 
 (add-hook 'text-mode-hook 'visual-line-mode)
 
+;;numberline
 (global-display-line-numbers-mode 1)
 (setq display-line-numbers-type 'relative)
 
@@ -50,6 +53,7 @@
 :ensure t)
 (which-key-mode)
 
+;;change font size on fly
 (global-set-key (kbd "C-=") 'text-scale-increase)
 (global-set-key (kbd "C--") 'text-scale-decrease)
 (global-set-key (kbd "<C-wheel-down>") 'text-scale-decrease)
@@ -120,3 +124,6 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+(set-frame-parameter (selected-frame) 'alpha '(85 . 50))
+(add-to-list 'default-frame-alist '(alpha . (85 . 50)))
