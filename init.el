@@ -1,6 +1,6 @@
 ;;package
 (require 'package)
-(setq package-enable-at-startup nil)
+(setq package-enable-at-startup t)
 
 (add-to-list 'package-archives
 	     '("melpa" . "https://melpa.org/packages/"))
@@ -12,42 +12,17 @@
   (package-install 'use-package))
 
 
-(use-package cyberpunk-theme
-  :config
-  (load-theme 'cyberpunk t))
-
-;;themes
-;;(use-package ewal
-;;  :init (setq ewal-use-built-in-always-p nil
-;;              ewal-use-built-in-on-failure-p t
-;;              ewal-built-in-palette "sexy-material"))
-
-;;(use-package ewal-spacemacs-themes
-;;  :if window-system
-;;  :ensure t
-;;  :init
-;;  (load-theme 'ewal-spacemacs-classic t)
+(use-package the-matrix-theme
+  :ensure t
+  :init
+  (load-theme 'the-matrix t))
+	
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 (toggle-scroll-bar -1)
 (window-divider-mode -1)
 (fringe-mode -1)
-;;)
-
-
-;;(use-package spaceline
-;;  :ensure t)
-
-;;(use-package spaceline-config
-;;  :ensure spaceline
-;;  :config
-;;  (spaceline-helm-mode 1)
-;;  (spaceline-emacs-theme)
-;;  (spaceline-toggle-org-clock-on)
-;;  (spaceline-toggle-minor-modes-off)
-;;  (spaceline-toggle-version-control-off))
-
 
 (setq ring-bell-function 'ignore)
 
@@ -85,12 +60,20 @@
 ;;change font size on fly
 (global-set-key (kbd "C-=") 'text-scale-increase)
 (global-set-key (kbd "C--") 'text-scale-decrease)
-(global-set-key (kbd "<C-wheel-down>") 'text-scale-decrease)
-(global-set-key (kbd "<C-wheel-up>") 'text-scale-increase)
+;(global-set-key (kbd "<C-wheel-down>") 'text-scale-decrease)
+;(global-set-key (kbd "<C-wheel-up>") 'text-scale-increase)
 
 (add-to-list 'default-frame-alist
-	     '(font . "FantasqueSansMono Nerd Font-11"))
+	     '(font . "Terminus-9"))
 
+
+(add-hook 'org-mode-hook 'org-indent-mode)
+(setq org-directory "~/Org/"
+      org-ellipsis " ▼ "
+      org-hide-emphasis-markers t)
+(setq org-src-preserve-indentation nil
+      org-src-tab-acts-natively t
+      org-edit-src-content-indentation 0)
 
 
 (setq use-dialog-box nil)
@@ -105,69 +88,8 @@
   :ensure t
   :config
   (dashboard-setup-startup-hook)
-  (setq dashboard-startup-banner "~/.emacs.d/img.png")
+  (setq dashboard-startup-banner "~/.emacs.d/wow.png")
   (setq dashboard-banner-logo-title "Welcome ladies and gentlement to looph0le's Emacs!!"))
-
-(use-package switch-window
-  :ensure t
-  :config
-  (setq switch-window-input-style 'minibuffer)
-  (setq switch-window-increase 4)
-  (setq switch-window-threshold 2)
-  (setq switch-window-shortcut-style 'qwerty)
-  (setq switch-window-qwerty-shortcuts
-	'("a" "s" "d" "f" "j" "k" "l"))
-  :bind
-  ([remap other-window] . switch-window))
-
-(use-package hungry-delete
-  :ensure t
-  :config (global-hungry-delete-mode))
-
-;;(use-package org-bullets
- ;; :ensure t
-;;  :config
-;;  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
-
-;;(use-package magit
-;;  :ensure t
-;;  :config
-;;  (setq magit-push-always-verify nil)
-;;  (setq git-commit-summary-max-length 50)
-;;  :bind
-;;  ("M-g" . magit-status))
-
-;;(defun entry-time-stamp()
-;;  (interactive)
-;;  (insert (format-time-string "<i class='ts'>%a %I:%m.%P %d.%m.%4Y</i>")))
-;;(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
-;; '(package-selected-packages
-;;   '(magit org-bullets hungry-delete switch-window ewal-spacemacs-themes which-key use-package evil-collection doom-themes doom-modeline dashboard)))
-;;(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
-;; )
 
 (set-frame-parameter (selected-frame) 'alpha '(90 . 90))
 (add-to-list 'default-frame-alist '(alpha . (90 . 90)))
-
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   '(green-screen-emacs which-key use-package switch-window org-bullets magit hungry-delete ewal-spacemacs-themes evil-collection dashboard cyberpunk-theme)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
