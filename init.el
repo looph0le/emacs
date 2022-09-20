@@ -12,10 +12,10 @@
   (package-install 'use-package))
 
 
-(use-package the-matrix-theme
+(use-package ewal-doom-themes
   :ensure t
   :init
-  (load-theme 'the-matrix t))
+  (load-theme 'ewal-doom-one t))
 	
 (menu-bar-mode -1)
 (tool-bar-mode -1)
@@ -64,7 +64,7 @@
 ;(global-set-key (kbd "<C-wheel-up>") 'text-scale-increase)
 
 (add-to-list 'default-frame-alist
-	     '(font . "Terminus-9"))
+	     '(font . "FantasqueSansMono Nerd Font-10"))
 
 
 (add-hook 'org-mode-hook 'org-indent-mode)
@@ -91,5 +91,8 @@
   (setq dashboard-startup-banner "~/.emacs.d/wow.png")
   (setq dashboard-banner-logo-title "Welcome ladies and gentlement to looph0le's Emacs!!"))
 
-(set-frame-parameter (selected-frame) 'alpha '(90 . 90))
-(add-to-list 'default-frame-alist '(alpha . (90 . 90)))
+(setq frame-resize-pixelwise t)
+
+(set-frame-parameter (selected-frame) 'alpha '(95 . 95))
+(add-to-list 'default-frame-alist '(alpha . (95 . 95)))
+

@@ -1,4 +1,4 @@
-;;; ewal-autoloads.el --- automatically extracted autoloads
+;;; ewal-autoloads.el --- automatically extracted autoloads  -*- lexical-binding: t -*-
 ;;
 ;;; Code:
 
@@ -28,7 +28,7 @@ Pass COLOR, SHADE, and SHADE-PERCENT-DIFFERENCE to
 
 \(fn COLOR &optional SHADE SHADE-PERCENT-DIFFERENCE)" nil nil)
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "ewal" '("ewal-")))
+(register-definition-prefixes "ewal" '("ewal-"))
 
 ;;;***
 

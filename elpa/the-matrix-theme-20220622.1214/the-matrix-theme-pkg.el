@@ -1,0 +1,2 @@
+;;; Generated package description from the-matrix-theme.el  -*- no-byte-compile: t -*-
+(define-package "the-matrix-theme" "20220622.1214" "Green-on-black dark theme inspired by \"The Matrix\" movie" '((emacs "26.1")) :commit "289ed872003708ef1595e5e6765b50ca53e34ac8" :authors '(("Dan Dee" . "monkeyjunglejuice@pm.me")) :maintainer '("Dan Dee" . "monkeyjunglejuice@pm.me") :keywords '("faces" "theme") :url "https://github.com/monkeyjunglejuice/matrix-emacs-theme")

@@ -1,6 +1,6 @@
 (define-package "ewal" "20200305.230" "A pywal-based theme generator"
   '((emacs "25.1"))
-  :commit "e2a04f5c97b7d5e087af26e646c0b45a24522e56" :authors
+  :commit "4ecc355dae9c7d648cd2874e01a15dfa02b9350d" :authors
   '(("Uros Perisic"))
   :maintainer
   '("Uros Perisic")
