@@ -88,7 +88,9 @@
   :ensure t
   :config
   (dashboard-setup-startup-hook)
-  (setq dashboard-startup-banner "~/.emacs.d/wow.png")
+  (setq dashboard-startup-banner 3)
+  (setq dashboard-center-content t)
+  (setq dashboard-show-shortcuts nil)
   (setq dashboard-banner-logo-title "Welcome ladies and gentlement to looph0le's Emacs!!"))
 
 (setq frame-resize-pixelwise t)
