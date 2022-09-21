@@ -12,17 +12,20 @@
   (package-install 'use-package))
 
 
-(use-package ewal-doom-themes
+(use-package ewal-doom-themes 
   :ensure t
-  :init
-  (load-theme 'ewal-doom-one t))
+  :init)
 	
+(load-theme 'ewal-doom-one t)
+
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 (toggle-scroll-bar -1)
 (window-divider-mode -1)
 (fringe-mode -1)
+
+(setq-default mode-line-format nil)
 
 (setq ring-bell-function 'ignore)
 
@@ -88,13 +91,13 @@
   :ensure t
   :config
   (dashboard-setup-startup-hook)
-  (setq dashboard-startup-banner 3)
-  (setq dashboard-center-content t)
+  (setq dashboard-startup-banner "~/.emacs.d/sward.gif")
+  (setq dashboard-center-content nil)
   (setq dashboard-show-shortcuts nil)
+  (setq dashboard-set-file-icons t)
   (setq dashboard-banner-logo-title "Welcome ladies and gentlement to looph0le's Emacs!!"))
 
 (setq frame-resize-pixelwise t)
 
 (set-frame-parameter (selected-frame) 'alpha '(95 . 95))
 (add-to-list 'default-frame-alist '(alpha . (95 . 95)))
-
