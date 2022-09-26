@@ -15,8 +15,11 @@
 (use-package ewal-doom-themes 
   :ensure t
   :init)
-	
-(load-theme 'ewal-doom-one t)
+
+(use-package magit
+  :ensure t)
+
+(load-theme 'ewal-doom-vibrant t)
 
 (menu-bar-mode -1)
 (tool-bar-mode -1)
@@ -25,7 +28,7 @@
 (window-divider-mode -1)
 (fringe-mode -1)
 
-(setq-default mode-line-format nil)
+;(setq-default mode-line-format nil)
 
 (setq ring-bell-function 'ignore)
 
@@ -54,7 +57,7 @@
 
 ;;numberline
 (global-display-line-numbers-mode 1)
-(setq display-line-numbers-type 'relative)
+(setq display-line-numbers-type t)
 
 (use-package which-key
 :ensure t)
@@ -78,6 +81,12 @@
       org-src-tab-acts-natively t
       org-edit-src-content-indentation 0)
 
+(use-package org-bullets
+  :ensure t
+  :config
+  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
+
+(setq org-support-shift-select t)
 
 (setq use-dialog-box nil)
 (setq use-file-dialog nil)
@@ -91,11 +100,12 @@
   :ensure t
   :config
   (dashboard-setup-startup-hook)
-  (setq dashboard-startup-banner "~/.emacs.d/sward.gif")
-  (setq dashboard-center-content nil)
+  (setq dashboard-startup-banner 2)
+  (setq dashboard-center-content t)
   (setq dashboard-show-shortcuts nil)
   (setq dashboard-set-file-icons t)
   (setq dashboard-banner-logo-title "Welcome ladies and gentlement to looph0le's Emacs!!"))
+
 
 (setq frame-resize-pixelwise t)
 
