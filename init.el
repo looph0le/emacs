@@ -16,6 +16,7 @@
   :ensure t
   :init)
 
+
 (use-package magit
   :ensure t)
 
@@ -70,7 +71,7 @@
 ;(global-set-key (kbd "<C-wheel-up>") 'text-scale-increase)
 
 (add-to-list 'default-frame-alist
-	     '(font . "FantasqueSansMono Nerd Font-10"))
+	     '(font . "FantasqueSansMono Nerd Font-12"))
 
 
 (add-hook 'org-mode-hook 'org-indent-mode)
@@ -109,5 +110,44 @@
 
 (setq frame-resize-pixelwise t)
 
-(set-frame-parameter (selected-frame) 'alpha '(95 . 95))
-(add-to-list 'default-frame-alist '(alpha . (95 . 95)))
+(set-frame-parameter (selected-frame) 'alpha '(90 . 90))
+(add-to-list 'default-frame-alist '(alpha . (100 . 100)))
+
+(use-package lsp-mode
+  :ensure t
+  :init
+  (setq lsp-keymap-prefix "C-c l")
+  :hook (;; replace XXX-mode with concrete major-mode(e. g. python-mode)
+         (c-mode . lsp)
+         (lsp-mode . lsp-enable-which-key-integration))
+  :commands lsp)
+
+(use-package lsp-ui :commands lsp-ui-mode)
+(use-package helm-lsp :commands helm-lsp-workspace-symbol)
+(use-package lsp-ivy :commands lsp-ivy-workspace-symbol)
+(use-package lsp-treemacs :commands lsp-treemacs-errors-list)
+
+(use-package company
+  :ensure t
+  :init
+  (add-hook 'after-init-hook 'global-company-mode))
+
+(use-package yasnippet-snippets
+  :ensure t)
+(yas-global-mode 1)
+
+
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   '(company which-key use-package org-bullets magit lsp-mode ewal-doom-themes evil-collection dashboard)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
