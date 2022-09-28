@@ -111,7 +111,7 @@
 (setq frame-resize-pixelwise t)
 
 (set-frame-parameter (selected-frame) 'alpha '(90 . 90))
-(add-to-list 'default-frame-alist '(alpha . (100 . 100)))
+(add-to-list 'default-frame-alist '(alpha . (90 . 90)))
 
 (use-package lsp-mode
   :ensure t
@@ -132,22 +132,29 @@
   :init
   (add-hook 'after-init-hook 'global-company-mode))
 
+(use-package company-box
+  :ensure t
+  :hook (company-mode . company-box-mode))
+
+
 (use-package yasnippet-snippets
   :ensure t)
 (yas-global-mode 1)
 
+(use-package rainbow-mode
+  :ensure t)
+(define-globalized-minor-mode my-global-rainbow-mode rainbow-mode
+  (lambda () (rainbow-mode 1)))
 
+(my-global-rainbow-mode 1)
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   '(company which-key use-package org-bullets magit lsp-mode ewal-doom-themes evil-collection dashboard)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+(use-package python-mode
+  :ensure t
+  :hook (python-mode . lsp-deferred))
+
+(use-package pyvenv
+  :ensure t
+  :config
+  (pyvenv-mode 1))
+
+(electric-pair-mode 1)
